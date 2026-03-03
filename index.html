@@ -210,13 +210,16 @@
                     <form class="calculate-form">
                         <div class="calculate-form-body">
                             <label for="height" class="visually-hidden">Height</label>
-                            <input id="height" type="number" class="calculate-input input" placeholder="Height / cm">
+                            <input id="height" type="text" class="calculate-input input" 
+                            inputmode="numeric" pattern="\d*" maxlength="3" placeholder="Height / cm">
 
                             <label for="weight" class="visually-hidden">Weight</label>
-                            <input id="weight" type="number" class="calculate-input input" placeholder="Weight / kg">
+                            <input id="weight" type="text" class="calculate-input input" 
+                            inputmode="numeric" pattern="\d*" maxlength="3" placeholder="Weight / kg">
 
                             <label for="age" class="visually-hidden">Height</label>
-                            <input id="age" type="number" class="calculate-input input" placeholder="Age">
+                            <input id="age" type="text" class="calculate-input input" 
+                            inputmode="numeric" pattern="\d*" maxlength="3" placeholder="Age">
 
                             <label for="gender" class="visually-hidden">Gender</label>
                             <select id="gender" class="calculate-input input" required>
@@ -368,5 +371,7 @@
             </div>
         </footer>
     </main>
+
+    <script src="/script.js"></script>
 </body>
 </html>
