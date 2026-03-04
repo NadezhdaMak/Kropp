@@ -472,7 +472,7 @@ h1, h2, h3, h4, h5, h6{
   align-items: center;
   column-gap: 20px;
   padding-inline: 32px;
-  min-height: var(--header-height);
+  height: var(--header-height);
   background-color: var(--color-dark-alternate);
 }
 
@@ -544,7 +544,7 @@ h1, h2, h3, h4, h5, h6{
   display: flex;
   flex-direction: column;
   justify-content: end;
-  min-height: calc(100vh - var(--header-height) - var(--banner-padding-block) * 2);
+  min-height: calc(100dvh - var(--header-height) - var(--banner-padding-block) * 2);
   padding-block: var(--banner-padding-block);
   padding-inline: 70px;
   color: var(--color-light);
@@ -1173,12 +1173,12 @@ h1, h2, h3, h4, h5, h6{
 
   .location-map{
     max-width: 100%;
-    height: 350px;
+    height: 450px;
   }
 
 
   .family-image{
-    height: 350px;
+    height: 450px;
   }
 
 
@@ -1363,16 +1363,10 @@ h1, h2, h3, h4, h5, h6{
     padding-block: 55px;
   }
 
-  .location-map{
-    height: 250px;
-  }
-
   .family-header{
     padding-inline: 45px 30px;
   }
-  .family-image{
-    height: 250px;
-  }
+  
   .calculate-inner{
     row-gap: 65px;
   }
@@ -1426,9 +1420,45 @@ h1, h2, h3, h4, h5, h6{
     left: 0;
     width: calc(100% - 64px);
     z-index: 10;
+
+    animation-name: scrolling-header;
+    animation-fill-mode: both;
+    animation-timeline: scroll();
+    animation-range: 80vh 150vh;
   }
 
   .banner{
-    min-height: calc(100vh - var(--banner-padding-block) * 2);
+    min-height: calc(100dvh - var(--banner-padding-block) * 2);
   }
 }
+
+/* Анимации */
+
+@keyframes fill-progress{
+  to{
+    width: 100%;
+  }
+}
+
+.progress-bar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 5px;
+  background-color: var(--color-dark-gray);
+
+  animation-name: fill-progress;
+  animation-timing-function: linear;
+  animation-timeline: scroll();
+}
+
+
+  @keyframes scrolling-header{
+  to {
+    height: 65px;
+    box-shadow: 0 2px 2px rgb(000 / 0.5);
+  }
+}
+
+
